@@ -1,14 +1,38 @@
 import React from 'react';
 import './App.css';
-
+import StyleContext from './StyleContext';
 import UserInterface from "./UserInterface"
 
 function App() {
+
+  const styling = {
+    background: "#ff3300",
+    display: "inline-block",
+    width: 120,
+    height: 55,
+    fontSize: 18,
+    letterSpacing: 1,
+    border: "2px solid #1ECD97",
+    color: 'white',
+    borderRadius: 15             
+
+  }
+
+  const headerStyle = {
+    color: 'blue'
+  }
+
+  const styles ={
+    styling,
+    headerStyle
+  }
+
   return (
     <main>
-     <h1
+      <StyleContext.Provider value={styles}>
+      <h1
           style={{
-            color: "#FEE001",
+            color: "#fee001",
             fontFamily: "Luminari, fantasy",
             fontSize: 50
           }}
@@ -16,6 +40,7 @@ function App() {
           Welcome to Comics Galore!
         </h1>
         <UserInterface />
+      </StyleContext.Provider>
     </main>
   );
 }
